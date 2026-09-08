@@ -24,25 +24,48 @@
     <meta name="description" content="DIY & Basteln Blog mit den besten Amazon-Produkten 2026: Winter-Deko, Küchenorganisation, Smart Home, Wellness und Geschenke. Ehrlich getestet.">
     <link rel="canonical" href="https://balu17051.github.io/andreasstehmann-diy/">
     <style>
-        :root { --bg:#f8fafc; --card:#fff; --text:#1f2937; --muted:#6b7280; --accent:#2563eb; --shadow:0 4px 20px rgba(0,0,0,0.06); --radius:14px; }
+
+        :root { --bg:#f8fafc; --card:#fff; --text:#1f2937; --muted:#6b7280; --accent:#2563eb; --shadow:0 4px 20px rgba(0,0,0,0.06); --radius:14px; --warn:#f59e0b; --ok:#10b981; }
         * { margin:0; padding:0; box-sizing:border-box; }
         body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
         header { background:linear-gradient(135deg,#b45309,#d97706); color:#fff; padding:48px 20px; text-align:center; }
         header h1 { font-size:clamp(1.5rem,3.2vw,2.2rem); margin-bottom:8px; }
-        header p { opacity:.9; }
+        header p { opacity:.9; font-size:1rem; }
         .container { max-width:1120px; margin:0 auto; padding:36px 20px; }
         .section-title { font-size:1.4rem; margin:28px 0 14px; text-align:center; }
-        .materials { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; margin-top:14px; }
-        .material { background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px; border:1px solid rgba(0,0,0,0.04); }
-        .material h3 { font-size:1rem; margin:8px 0 6px; }
-        .material .price { font-weight:700; color:#0f172a; margin:4px 0 10px; }
-        .material ul { list-style:none; padding:0; margin:0 0 10px; }
-        .material ul li { padding:3px 0; font-size:.9rem; color:var(--muted); }
-        .material ul li:before { content:'✅ '; }
-        .btn { display:inline-block; background:var(--accent); color:#fff; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; }
-        .projects { background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); padding:18px; margin-top:22px; }
-        .disclaimer { background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); padding:18px; margin-top:22px; font-size:.85rem; color:var(--muted); }
+        .products { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; margin-top:14px; }
+        .product { background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px; border:1px solid rgba(0,0,0,0.04); }
+        .product img { width:100%; height:180px; object-fit:contain; margin-bottom:12px; }
+        .product h3 { font-size:1rem; margin:8px 0 6px; }
+        .product p { font-size:.9rem; color:var(--muted); margin-bottom:10px; }
+        .product ul { list-style:none; padding:0; margin:0 0 10px; }
+        .product ul li { padding:3px 0; font-size:.85rem; color:var(--muted); }
+        .product ul li:before { content:'✅ '; }
+        .price { font-weight:700; color:#0f172a; margin:4px 0 10px; font-size:1.05rem; }
+        .btn { display:inline-block; background:var(--accent); color:#fff; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; width:100%; text-align:center; box-sizing:border-box; }
+        .blog-section { margin-top:40px; }
+        .blog-intro { background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); padding:18px; margin-bottom:22px; text-align:center; }
+        .blog-intro p { color:var(--muted); max-width:720px; margin:0 auto; }
+        .posts { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; margin-top:14px; }
+        .post { background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; border-left:5px solid var(--warn); transition:transform .2s; }
+        .post:hover { transform:translateY(-2px); }
+        .post-meta { font-size:.8rem; color:var(--muted); margin-bottom:8px; }
+        .post h3 { font-size:1.05rem; margin:6px 0 8px; color:#0f172a; }
+        .post p { font-size:.9rem; color:var(--muted); margin-bottom:10px; }
+        .post ul { list-style:none; padding:0; margin:0 0 12px; }
+        .post ul li { padding:4px 0; font-size:.85rem; color:var(--text); }
+        .post ul li:before { content:'▫️ '; }
+        .post .btn { background:#f59e0b; }
+        .disclaimer { background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); padding:18px; margin-top:24px; font-size:.85rem; color:var(--muted); }
         footer { text-align:center; padding:24px 20px; font-size:.8rem; color:var(--muted); }
+        @media (max-width: 768px) {
+          .container { padding:20px 16px; }
+          .products, .posts { grid-template-columns:1fr; gap:14px; }
+          header { padding:36px 16px; }
+          .product, .post { padding:16px; }
+          .btn { width:100%; text-align:center; }
+        }
+
     </style>
     <script type="application/ld+json">
     {
@@ -79,249 +102,180 @@
         <h1>DIY & Basteln</h1>
         <p>Hochwertiges Bastelzubehör für Anfänger und Fortgeschrittene.</p>
     </header>
-    <main class="container">
-        <h2 class="section-title">Materialien, die wirklich passen</h2>
-        <div class="materials">
-            <article class="material">
-                <img class="product-image" src="https://m.media-amazon.com/images/I/81L662OFVOL._AC_SR160,134_CB1169409_QL70_CB1169409_QL70_CB1169409_QL70_.jpg" alt="DIY & Basteln"
-
-<h3>1. Acrylfarbe Set matt</h3>
+        <main class="container">
+        <h2 class="section-title">🛒 Materialien, die wirklich passen</h2>
+        <div class="products">
+            <article class="product">
+                <img class="product-image" src="https://m.media-amazon.com/images/I/81L662OFVOL._AC_SR160,134_CB1169409_QL70_CB1169409_QL70_CB1169409_QL70_.jpg" alt="Acrylfarbe Set matt">
+                <h3>1. Acrylfarbe Set matt</h3>
                 <p>24 Farben, schnelltrocknend, für Holz, Leinwand und DIY-Projekte.</p>
                 <ul>
-<li><strong>Materialqualität:</strong> Lichtechte Farben und stabile Pinsel.</li><li><strong>Vielseitigkeit:</strong> Set statt Einzelteile spart Geld.</li><li><strong>Sicherheit:</strong> Lüften, Handschuhe, Unterlage.</li><li><strong>Aufbewahrung:</strong> Dosen verschließen, Pinsel reinigen.</li>
-            </ul>
+                    <li>Lichtechte Farben und stabile Pinsel.</li>
+                    <li>Set statt Einzelteile spart Geld.</li>
+                    <li>Lüften, Handschuhe, Unterlage.</li>
+                </ul>
                 <div class="price">ca. 15–22 €</div>
-                <a class="btn" href="https://www.amazon.de/s?k=acrylfarbe+set+matt&tag=balu17051-21&utm_source=pinterest&utm_medium=social&utm_campaign=diy" rel="nofollow noopener" target="_blank">Jetzt bei Amazon</a>
+                <a class="btn" href="https://www.amazon.de/s?k=acrylfarbe+set+matt&tag=balu17051-21&utm_source=pinterest&utm_medium=social&utm_campaign=diy" target="_blank" rel="noopener">Jetzt bei Amazon</a>
             </article>
-            <article class="material">
-                <img class="product-image" src="https://m.media-amazon.com/images/I/71mEgh9msgL._AC_SR160,134_CB1169409_QL70_CB1169409_QL70_CB1169409_QL70_.jpg" alt="DIY & Basteln"
-
-<h3>2. Bastelkleber transparent</h3>
+            <article class="product">
+                <img class="product-image" src="https://m.media-amazon.com/images/I/71mEgh9msgL._AC_SR160,134_CB1169409_QL70_CB1169409_QL70_CB1169409_QL70_.jpg" alt="Bastelkleber transparent">
+                <h3>2. Bastelkleber transparent</h3>
                 <p>Starker Halt auf Papier, Holz und Stoff — tropffrei.</p>
                 <ul>
-<li><strong>Materialqualität:</strong> Lichtechte Farben und stabile Pinsel.</li><li><strong>Vielseitigkeit:</strong> Set statt Einzelteile spart Geld.</li><li><strong>Sicherheit:</strong> Lüften, Handschuhe, Unterlage.</li><li><strong>Aufbewahrung:</strong> Dosen verschließen, Pinsel reinigen.</li>
-            </ul>
+                    <li>Lichtechte Farben und stabile Pinsel.</li>
+                    <li>Set statt Einzelteile spart Geld.</li>
+                    <li>Lüften, Handschuhe, Unterlage.</li>
+                </ul>
                 <div class="price">ca. 5–10 €</div>
-                <a class="btn" href="https://www.amazon.de/s?k=bastelkleber+transparent&tag=balu17051-21&utm_source=pinterest&utm_medium=social&utm_campaign=diy" rel="nofollow noopener" target="_blank">Jetzt bei Amazon</a>
+                <a class="btn" href="https://www.amazon.de/s?k=bastelkleber+transparent&tag=balu17051-21&utm_source=pinterest&utm_medium=social&utm_campaign=diy" target="_blank" rel="noopener">Jetzt bei Amazon</a>
             </article>
-            <article class="material">
-                <img class="product-image" src="https://m.media-amazon.com/images/I/91HSaP6yM5L._AC_SR160,134_CB1169409_QL70_CB1169409_QL70_CB1169409_QL70_.jpg" alt="DIY & Basteln"
-
-<h3>3. Schneidematte A3</h3>
+            <article class="product">
+                <img class="product-image" src="https://m.media-amazon.com/images/I/91HSaP6yM5L._AC_SR160,134_CB1169409_QL70_CB1169409_QL70_CB1169409_QL70_.jpg" alt="Schneidematte A3">
+                <h3>3. Schneidematte A3</h3>
                 <p>Selbstheilend, cm-Skala — für Basteln, Modellbau und Papier.</p>
                 <ul>
-<li><strong>Materialqualität:</strong> Lichtechte Farben und stabile Pinsel.</li><li><strong>Vielseitigkeit:</strong> Set statt Einzelteile spart Geld.</li><li><strong>Sicherheit:</strong> Lüften, Handschuhe, Unterlage.</li><li><strong>Aufbewahrung:</strong> Dosen verschließen, Pinsel reinigen.</li>
-            </ul>
+                    <li>Lichtechte Farben und stabile Pinsel.</li>
+                    <li>Set statt Einzelteile spart Geld.</li>
+                    <li>Lüften, Handschuhe, Unterlage.</li>
+                </ul>
                 <div class="price">ca. 10–18 €</div>
-                <a class="btn" href="https://www.amazon.de/s?k=schneidematte+a3+selbstheilend&tag=balu17051-21&utm_source=pinterest&utm_medium=social&utm_campaign=diy" rel="nofollow noopener" target="_blank">Jetzt bei Amazon</a>
+                <a class="btn" href="https://www.amazon.de/s?k=schneidematte+a3+selbstheilend&tag=balu17051-21&utm_source=pinterest&utm_medium=social&utm_campaign=diy" target="_blank" rel="noopener">Jetzt bei Amazon</a>
             </article>
-            <article class="material">
-                <img class="product-image" src="https://m.media-amazon.com/images/I/81mtThz8RNL._AC_SR160,134_CB1169409_QL70_CB1169409_QL70_CB1169409_QL70_.jpg" alt="DIY & Basteln"
-
-<h3>4. Pinsel-Set rund/flach</h3>
+            <article class="product">
+                <img class="product-image" src="https://m.media-amazon.com/images/I/81mtThz8RNL._AC_SR160,134_CB1169409_QL70_CB1169409_QL70_CB1169409_QL70_.jpg" alt="Pinsel-Set rund/flach">
+                <h3>4. Pinsel-Set rund/flach</h3>
                 <p>12 Größen, synthetisch, für Acryl, Aquarell und Lack.</p>
                 <ul>
-<li><strong>Materialqualität:</strong> Lichtechte Farben und stabile Pinsel.</li><li><strong>Vielseitigkeit:</strong> Set statt Einzelteile spart Geld.</li><li><strong>Sicherheit:</strong> Lüften, Handschuhe, Unterlage.</li><li><strong>Aufbewahrung:</strong> Dosen verschließen, Pinsel reinigen.</li>
-            </ul>
+                    <li>Lichtechte Farben und stabile Pinsel.</li>
+                    <li>Set statt Einzelteile spart Geld.</li>
+                    <li>Lüften, Handschuhe, Unterlage.</li>
+                </ul>
                 <div class="price">ca. 8–15 €</div>
-                <a class="btn" href="https://www.amazon.de/s?k=pinsel+set+rund+flach&tag=balu17051-21&utm_source=pinterest&utm_medium=social&utm_campaign=diy" rel="nofollow noopener" target="_blank">Jetzt bei Amazon</a>
+                <a class="btn" href="https://www.amazon.de/s?k=pinsel+set+rund+flach&tag=balu17051-21&utm_source=pinterest&utm_medium=social&utm_campaign=diy" target="_blank" rel="noopener">Jetzt bei Amazon</a>
             </article>
-            <article class="material">
-                <img class="product-image" src="https://m.media-amazon.com/images/I/61qv8kTrK4L._AC_SR160,134_CB1169409_QL70_CB1169409_QL70_CB1169409_QL70_.jpg" alt="DIY & Basteln"
-
-<h3>5. Klebepistole mit Zubehör</h3>
+            <article class="product">
+                <img class="product-image" src="https://m.media-amazon.com/images/I/61qv8kTrK4L._AC_SR160,134_CB1169409_QL70_CB1169409_QL70_CB1169409_QL70_.jpg" alt="Klebepistole mit Zubehör">
+                <h3>5. Klebepistole mit Zubehör</h3>
                 <p>Heißklebepistole, 20 Stäbe, schnelle Aufheizzeit.</p>
                 <ul>
-<li><strong>Materialqualität:</strong> Lichtechte Farben und stabile Pinsel.</li><li><strong>Vielseitigkeit:</strong> Set statt Einzelteile spart Geld.</li><li><strong>Sicherheit:</strong> Lüften, Handschuhe, Unterlage.</li><li><strong>Aufbewahrung:</strong> Dosen verschließen, Pinsel reinigen.</li>
-            </ul>
+                    <li>Lichtechte Farben und stabile Pinsel.</li>
+                    <li>Set statt Einzelteile spart Geld.</li>
+                    <li>Lüften, Handschuhe, Unterlage.</li>
+                </ul>
                 <div class="price">ca. 10–18 €</div>
-                <a class="btn" href="https://www.amazon.de/s?k=klebepistole+mit+zubeh%C3%B6r&tag=balu17051-21&utm_source=pinterest&utm_medium=social&utm_campaign=diy" rel="nofollow noopener" target="_blank">Jetzt bei Amazon</a>
+                <a class="btn" href="https://www.amazon.de/s?k=klebepistole+mit+zubeh%C3%B6r&tag=balu17051-21&utm_source=pinterest&utm_medium=social&utm_campaign=diy" target="_blank" rel="noopener">Jetzt bei Amazon</a>
             </article>
-            <article class="material">
-                <img class="product-image" src="https://m.media-amazon.com/images/I/71cxWeHxTbL._AC_SR160,134_CB1169409_QL70_CB1169409_QL70_CB1169409_QL70_.jpg" alt="DIY & Basteln"
-
-<h3>6. Skizzenbuch A5</h3>
+            <article class="product">
+                <img class="product-image" src="https://m.media-amazon.com/images/I/71cxWeHxTbL._AC_SR160,134_CB1169409_QL70_CB1169409_QL70_CB1169409_QL70_.jpg" alt="Skizzenbuch A5">
+                <h3>6. Skizzenbuch A5</h3>
                 <p>200 Seiten, 140 g/m², für Skizzen, Notizen und mixed media.</p>
                 <ul>
-<li><strong>Materialqualität:</strong> Lichtechte Farben und stabile Pinsel.</li><li><strong>Vielseitigkeit:</strong> Set statt Einzelteile spart Geld.</li><li><strong>Sicherheit:</strong> Lüften, Handschuhe, Unterlage.</li><li><strong>Aufbewahrung:</strong> Dosen verschließen, Pinsel reinigen.</li>
-            </ul>
+                    <li>Lichtechte Farben und stabile Pinsel.</li>
+                    <li>Set statt Einzelteile spart Geld.</li>
+                    <li>Lüften, Handschuhe, Unterlage.</li>
+                </ul>
                 <div class="price">ca. 8–14 €</div>
-                <a class="btn" href="https://www.amazon.de/s?k=skizzenbuch+a5+200+seiten&tag=balu17051-21&utm_source=pinterest&utm_medium=social&utm_campaign=diy" rel="nofollow noopener" target="_blank">Jetzt bei Amazon</a>
+                <a class="btn" href="https://www.amazon.de/s?k=skizzenbuch+a5+200+seiten&tag=balu17051-21&utm_source=pinterest&utm_medium=social&utm_campaign=diy" target="_blank" rel="noopener">Jetzt bei Amazon</a>
             </article>
         </div>
-        <div class="projects">
-            <h2>Projektideen für den Einstieg</h2>
-            <ul>
-<li><strong>Materialqualität:</strong> Lichtechte Farben und stabile Pinsel.</li><li><strong>Vielseitigkeit:</strong> Set statt Einzelteile spart Geld.</li><li><strong>Sicherheit:</strong> Lüften, Handschuhe, Unterlage.</li><li><strong>Aufbewahrung:</strong> Dosen verschließen, Pinsel reinigen.</li>
-            </ul>
+
+        <div class="blog-section">
+            <h2 class="section-title">📝 Blog & Ideen</h2>
+            <div class="blog-intro">
+                <p>Tipps, Tests und Empfehlungen für dein Zuhause — ehrlich und ohne Clickbait.</p>
+            </div>
+            <div class="posts">
+                <article class="post">
+                    <div class="post-meta">🎄 7. September 2026 — Kategorie: DIY</div>
+                    <h3>Winter-Deko unter 30€ selbst machen</h3>
+                    <p>Mit einfachen Materialien von Amazon zauberst du eine gemütliche Winteratmosphäre — ohne viel Geld auszugeben.</p>
+                    <ul>
+                        <li>Lichterkette warmweiß, 10 m, batteriebetrieben</li>
+                        <li>Tannenzapfen und Keratins für natürliche Akzente</li>
+                        <li>Spray-Farbe mattweiß oder gold für Highlights</li>
+                    </ul>
+                    <a class="btn" href="https://www.amazon.de/s?k=winter+deko+basteln&tag=balu17051-21&utm_source=pinterest&utm_medium=social&utm_campaign=diy" target="_blank" rel="noopener">Jetzt Materialien kaufen</a>
+                </article>
+                <article class="post">
+                    <div class="post-meta">🗂️ 6. September 2026 — Kategorie: Küche</div>
+                    <h3>Küchenorganisation in 7 Tagen</h3>
+                    <p>Mehr Überblick in der Küche: Mit diesen Amazon-Produkten schaffst du Ordnung ohne große Renovierung.</p>
+                    <ul>
+                        <li>Schubladen-Organizer aus Bambus</li>
+                        <li>Standregal aus Metall, 5 Ebenen</li>
+                        <li>Mülltrennsystem 3-fach</li>
+                    </ul>
+                    <a class="btn" href="https://www.amazon.de/s?k=k%C3%BCchen+organisation&tag=balu17051-21&utm_source=pinterest&utm_medium=social&utm_campaign=kuechenorganisation" target="_blank" rel="noopener">Jetzt Organizer kaufen</a>
+                </article>
+                <article class="post">
+                    <div class="post-meta">🏠 5. September 2026 — Kategorie: Smart Home</div>
+                    <h3>Smart Home für Einsteiger — unter 50€</h3>
+                    <p>Du brauchst kein teures System. Mit diesen Amazon-Produkten startest du smart und günstig.</p>
+                    <ul>
+                        <li>Smart Steckdose WLAN mit Sprachsteuerung</li>
+                        <li>LED-Streifen WiFi RGB, 5 m</li>
+                        <li>Temperatur-Sensor kompakt</li>
+                    </ul>
+                    <a class="btn" href="https://www.amazon.de/s?k=smart+home+einsteiger&tag=balu17051-21&utm_source=pinterest&utm_medium=social&utm_campaign=smart-home" target="_blank" rel="noopener">Jetzt Smart Home entdecken</a>
+                </article>
+                <article class="post">
+                    <div class="post-meta">🧘‍♀️ 4. September 2026 — Kategorie: Wellness</div>
+                    <h3>Wellness zu Hause — 5 Ideen</h3>
+                    <p>Entspannung muss nicht teuer sein. Diese Amazon-Produkte verwandeln dein Zuhause in eine kleine Oase.</p>
+                    <ul>
+                        <li>Aroma-Diffusor Ultraschall 300 ml</li>
+                        <li>Yoga-Matte gepolstert und rutschfest</li>
+                        <li>Massageball für Rücken und Füße</li>
+                    </ul>
+                    <a class="btn" href="https://www.amazon.de/s?k=wellness+produkte&tag=balu17051-21&utm_source=pinterest&utm_medium=social&utm_campaign=wellness" target="_blank" rel="noopener">Jetzt Wellness-Produkte kaufen</a>
+                </article>
+                <article class="post">
+                    <div class="post-meta">🎁 3. September 2026 — Kategorie: Geschenke</div>
+                    <h3>Geschenke selbst machen — 3 Ideen</h3>
+                    <p>Persönliche Geschenke kommen immer am besten an. Mit diesen Amazon-Materialien gelingen sie garantiert.</p>
+                    <ul>
+                        <li>Fotoleinwand auf Keilrahmen</li>
+                        <li>Gravur-Set für Holz und Leder</li>
+                        <li>Back-Set für Cupcakes</li>
+                    </ul>
+                    <a class="btn" href="https://www.amazon.de/s?k=geschenke+selber+machen&tag=balu17051-21&utm_source=pinterest&utm_medium=social&utm_campaign=geschenke" target="_blank" rel="noopener">Jetzt Materialien kaufen</a>
+                </article>
+                <article class="post">
+                    <div class="post-meta">🌙 2. September 2026 — Kategorie: Parfüm</div>
+                    <h3>Damenparfüm Herbst/Winter — Die 5 Bestseller</h3>
+                    <p>Wenn es kühler wird, lieben wir wieder intensivere Düfte. Diese 5 Parfüme sind 2026 die Amazon-Bestseller.</p>
+                    <ul>
+                        <li>YSL Black Opium — süß-warm</li>
+                        <li>Chanel Coco Mademoiselle — klassisch</li>
+                        <li>Dior J'adore — feminin und blumig</li>
+                    </ul>
+                    <a class="btn" href="https://www.amazon.de/s?k=damen+parfum+herbst+winter&tag=balu17051-21&utm_source=pinterest&utm_medium=social&utm_campaign=parfum-damen" target="_blank" rel="noopener">Jetzt Parfüm entdecken</a>
+                </article>
+                <article class="post">
+                    <div class="post-meta">🧔 1. September 2026 — Kategorie: Parfüm</div>
+                    <h3>Herrendüfte Herbst/Winter — Stark & Langanhaltend</h3>
+                    <p>Im Winter tragen Männer gerne kräftigere Düfte. Diese Herrenparfüme dominieren aktuell Amazon.</p>
+                    <ul>
+                        <li>Dior Sauvage Elixir — holzig-würzig</li>
+                        <li>Bleu de Chanel EDP — vielseitig</li>
+                        <li>Versace Eros EDP — intensiv</li>
+                    </ul>
+                    <a class="btn" href="https://www.amazon.de/s?k=herren+parfum+herbst+winter&tag=balu17051-21&utm_source=pinterest&utm_medium=social&utm_campaign=parfum-herren" target="_blank" rel="noopener">Jetzt Herrendüfte entdecken</a>
+                </article>
+                <article class="post">
+                    <div class="post-meta">🧱 31. August 2026 — Kategorie: LEGO</div>
+                    <h3>LEGO Bestseller 2026 — Was Groß und Klein liebt</h3>
+                    <p>LEGO ist nicht nur für Kinder. Diese 5 Sets sind täglich auf Amazon im Trend.</p>
+                    <ul>
+                        <li>LEGO Technic McLaren — detailreich</li>
+                        <li>LEGO City Space — für Nachwuchs-Astronauten</li>
+                        <li>LEGO Creator 3-in-1 — flexibel</li>
+                    </ul>
+                    <a class="btn" href="https://www.amazon.de/s?k=lego+sets+2026&tag=balu17051-21&utm_source=pinterest&utm_medium=social&utm_campaign=lego" target="_blank" rel="noopener">Jetzt LEGO entdecken</a>
+                </article>
+            </div>
         </div>
-        <div class="disclaimer">
-            <p><strong>Hinweis:</strong> Amazon Affiliate-Seite. Preise und Verfügbarkeit täglich wechselnd.</p>
-            <p style="margin-top:6px;"><strong>Impressum:</strong> Andreas Stehmann — Adresse hier eintragen — E-Mail hier eintragen</p>
-            <p style="margin-top:6px;"><strong>Datenschutz:</strong> Keine Tracking-Cookies. Partnerlinks gekennzeichnet.</p>
-        </div>
-    
-
-<div class="grid">
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-<div style="background:#fff; border-radius:14px; box-shadow:0 4px 20px rgba(0,0,0,0.06); padding:20px; margin-top:24px; text-align:center;">
-  <h3 style="margin-bottom:12px; font-size:1.1rem;">🔍 Empfohlene Amazon-Produkte</h3>
-  <p style="color:#6b7280; margin-bottom:16px; font-size:0.95rem;">Entdecke die besten Produkte direkt bei Amazon</p>
-  <form action="https://www.amazon.de/s" method="get" target="_blank" rel="noopener" style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
-    <input type="hidden" name="tag" value="balu17051-21">
-    <input type="text" name="k" placeholder="Amazon durchsuchen..." style="padding:12px 16px; border:1px solid #e5e7eb; border-radius:10px; font-size:1rem; width:260px; max-width:100%;">
-    <button type="submit" style="padding:12px 24px; background:#2563eb; color:#fff; border:none; border-radius:10px; font-weight:600; cursor:pointer; font-size:1rem;">Suchen</button>
-  </form>
-</div>
-
-<div style="background:#fff; border-radius:14px; box-shadow:0 4px 20px rgba(0,0,0,0.06); padding:20px; margin-top:24px;">
-  <h3 style="margin-bottom:16px; font-size:1.1rem; text-align:center;">🛒 Beliebt bei Amazon</h3>
-  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(120px, 1fr)); gap:12px;">
-    <a href="https://www.amazon.de/s?k=amazon bestseller&tag=balu17051-21" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
-      <div style="background:#f8fafc; border-radius:10px; padding:10px; text-align:center; transition:transform 0.2s;">
-        <img src="https://m.media-amazon.com/images/I/61fy6TnUkSL._AC_SR160,134_.jpg" alt="Amazon Bestseller" style="width:100%; height:100px; object-fit:contain; margin-bottom:8px;">
-        <p style="font-size:12px; font-weight:600; margin:4px 0; color:#1f2937;">Amazon Bestseller</p>
-        <p style="font-size:11px; color:#6b7280; margin:0;">ca. 19,99 €</p>
-      </div>
-    </a>
-    <a href="https://www.amazon.de/s?k=amazon angebote&tag=balu17051-21" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
-      <div style="background:#f8fafc; border-radius:10px; padding:10px; text-align:center; transition:transform 0.2s;">
-        <img src="https://m.media-amazon.com/images/I/51yOl5EAgXL._AC_SR160,134_.jpg" alt="Amazon Angebot" style="width:100%; height:100px; object-fit:contain; margin-bottom:8px;">
-        <p style="font-size:12px; font-weight:600; margin:4px 0; color:#1f2937;">Amazon Angebot</p>
-        <p style="font-size:11px; color:#6b7280; margin:0;">ca. 24,99 €</p>
-      </div>
-    </a>
-    <a href="https://www.amazon.de/s?k=amazon trends 2026&tag=balu17051-21" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
-      <div style="background:#f8fafc; border-radius:10px; padding:10px; text-align:center; transition:transform 0.2s;">
-        <img src="https://m.media-amazon.com/images/I/81NqzOhkrCL._AC_SR160,134_.jpg" alt="Trend 2026" style="width:100%; height:100px; object-fit:contain; margin-bottom:8px;">
-        <p style="font-size:12px; font-weight:600; margin:4px 0; color:#1f2937;">Trend 2026</p>
-        <p style="font-size:11px; color:#6b7280; margin:0;">ca. 29,99 €</p>
-      </div>
-    </a>
-  </div>
-</div>
-
-        <div class="projects" style="margin-top:32px;">
-            <h2>📝 Blog: Die besten Amazon-Produkte 2026</h2>
-            <p style="color:#6b7280; margin-bottom:18px;">Tipps, Tests und Empfehlungen für dein Zuhause — ehrlich und ohne Clickbait.</p>
-        </div>
-
-        <article class="material" style="margin-top:18px;">
-            <h3>1. Winter-Deko unter 30€ selbst machen</h3>
-            <p style="color:#6b7280; font-size:0.9rem;">🎄 7. September 2026 — Kategorie: DIY</p>
-            <p>Mit einfachen Materialien von Amazon zauberst du eine gemütliche Winteratmosphäre — ohne viel Geld auszugeben.</p>
-            <ul>
-                <li><strong>Lichterkette:</strong> Warmweiß, 10 m, batteriebetrieben für Fenster und Regale.</li>
-                <li><strong>Tannenzapfen:</strong> Naturprodukte, leicht beklebt mit Schneckenspitzen.</li>
-                <li><strong>Keratins:</strong> In verschiedenen Größen, mit Juteschnur verbunden.</li>
-                <li><strong>Spray-Farbe:</strong> Mattweiß oder Gold für Akzente.</li>
-            </ul>
-            <a class="btn" href="https://www.amazon.de/s?k=winter+deko+basteln&tag=balu17051-21&utm_source=pinterest&utm_medium=social&utm_campaign=diy" target="_blank" rel="noopener">Jetzt Materialien bei Amazon kaufen</a>
-        </article>
-
-        <article class="material" style="margin-top:18px;">
-            <h3>2. Küchenorganisation in 7 Tagen</h3>
-            <p style="color:#6b7280; font-size:0.9rem;">🗂️ 6. September 2026 — Kategorie: Küche</p>
-            <p>Mehr Überblick in der Küche: Mit diesen Amazon-Produkten schaffst du Ordnung ohne große Renovierung.</p>
-            <ul>
-                <li><strong>Schubladen-Organizer:</strong> Modular, aus Bambus, für Besteck und Kleinteile.</li>
-                <li><strong>Regal-System:</strong> Standregal aus Metall, 5 Ebenen, schnell aufgebaut.</li>
-                <li><strong>Etiketten-Set:</strong> Wieder ablösbar, für Vorratsdosen und Glas.</li>
-                <li><strong>Mülltrennsystem:</strong> 3-fach, passt unter Standard-Arbeitsplatten.</li>
-            </ul>
-            <a class="btn" href="https://www.amazon.de/s?k=k%C3%BCchen+organisation&tag=balu17051-21&utm_source=pinterest&utm_medium=social&utm_campaign=kuechenorganisation" target="_blank" rel="noopener">Jetzt Organizer bei Amazon kaufen</a>
-        </article>
-
-        <article class="material" style="margin-top:18px;">
-            <h3>3. Smart Home für Einsteiger — unter 50€</h3>
-            <p style="color:#6b7280; font-size:0.9rem;">🏠 5. September 2026 — Kategorie: Smart Home</p>
-            <p>Du brauchst kein teues System. Mit diesen Amazon-Produkten startest du smart und günstig.</p>
-            <ul>
-                <li><strong>Smart Steckdose:</strong> WLAN, Sprachsteuerung, 16 A, kompatibel mit Alexa und Google Home.</li>
-                <li><strong>LED-Streifen:</strong> WiFi, RGB, 5 m, App-Steuerung und Timer-Funktion.</li>
-                <li><strong>Temperatur-Sensor:</strong> Kompakt, meldet Feuchtigkeit und Temperatur per App.</li>
-            </ul>
-            <a class="btn" href="https://www.amazon.de/s?k=smart+home+einsteiger&tag=balu17051-21&utm_source=pinterest&utm_medium=social&utm_campaign=smart-home" target="_blank" rel="noopener">Jetzt Smart-Home-Produkte bei Amazon kaufen</a>
-        </article>
-
-        <article class="material" style="margin-top:18px;">
-            <h3>4. Wellness zu Hause — 5 Ideen</h3>
-            <p style="color:#6b7280; font-size:0.9rem;">🧘‍♀️ 4. September 2026 — Kategorie: Wellness</p>
-            <p>Entspannung muss nicht teuer sein. Diese Amazon-Produkte verwandeln dein Zuhause in eine kleine Oase.</p>
-            <ul>
-                <li><strong>Aroma-Diffusor:</strong> Ultraschall, 300 ml, mit LED-Farbwechsel und Timer.</li>
-                <li><strong>Yoga-Matte:</strong> Gepolstert, rutschfest, 183 x 61 cm, inklusive Tragegurt.</li>
-                <li><strong>Massageball:</strong> Für Rücken und Füße, verbessert Durchblutung.</li>
-                <li><strong>Bademantel:</strong> Baumwolle, Kapuze, schnell trocknend.</li>
-            </ul>
-            <a class="btn" href="https://www.amazon.de/s?k=wellness+produkte&tag=balu17051-21&utm_source=pinterest&utm_medium=social&utm_campaign=wellness" target="_blank" rel="noopener">Jetzt Wellness-Produkte bei Amazon kaufen</a>
-        </article>
-
-        <article class="material" style="margin-top:18px;">
-            <h3>5. Geschenke selbst machen — 3 Ideen</h3>
-            <p style="color:#6b7280; font-size:0.9rem;">🎁 3. September 2026 — Kategorie: Geschenke</p>
-            <p>Persönliche Geschenke kommen immer am besten an. Mit diesen Amazon-Materialien gelingen sie garantiert.</p>
-            <ul>
-                <li><strong>Fotoleinwand:</strong> Eigenes Foto, fertig auf Keilrahmen, online gestalten.</li>
-                <li><strong>Gravur-Set:</strong> Für Holz und Leder, inklusive Buchstaben-Stempel.</li>
-                <li><strong>Back-Set:</strong> Cupcake-Formen, Spritzbeutel und Lebensmittelfarbe.</li>
-            </ul>
-            <a class="btn" href="https://www.amazon.de/s?k=geschenke+selber+machen&tag=balu17051-21&utm_source=pinterest&utm_medium=social&utm_campaign=geschenke" target="_blank" rel="noopener">Jetzt Materialien bei Amazon kaufen</a>
-        </article>
-
-
-        <article class="material" style="margin-top:18px;">
-            <h3>6. Damenparfüm Herbst/Winter — Die 5 Bestseller</h3>
-            <p style="color:#6b7280; font-size:0.9rem;">🌙 2. September 2026 — Kategorie: Parfüm</p>
-            <p>Wenn es kühler wird, lieben wir wieder intensivere Düfte. Diese 5 Parfüme sind 2026 die Amazon-Bestseller.</p>
-            <ul>
-                <li><strong>YSL Black Opium:</strong> Süß-warm, vanilla-coffee Akzente, perfekt für Abendtermine.</li>
-                <li><strong>Chanel Coco Mademoiselle:</strong> Elegant, klassisch, langanhaltend — das Komplettpaket.</li>
-                <li><strong>Dior J'adore:</strong> Blumig-fruchtig, feminin, für den modernen Luxus-Look.</li>
-                <li><strong>Lancôme La Vie Est Belle:</strong> Süß-pflanzlich, mit Patchouli, wird von Frauen ab 25+ geliebt.</li>
-                <li><strong>Guerlain Mon Guerlain:</strong> Sanft, pudrig, vanilla — ideal für den Herbst.</li>
-            </ul>
-            <a class="btn" href="https://www.amazon.de/s?k=damen+parfum+herbst+winter&tag=balu17051-21&utm_source=pinterest&utm_medium=social&utm_campaign=parfum-damen" target="_blank" rel="noopener">Jetzt Parfüm-Bestseller bei Amazon entdecken</a>
-        </article>
-
-        <article class="material" style="margin-top:18px;">
-            <h3>7. Herrendüfte Herbst/Winter — Stark & Langanhaltend</h3>
-            <p style="color:#6b7280; font-size:0.9rem;">🧔 1. September 2026 — Kategorie: Parfüm</p>
-            <p>Im Winter tragen Männer gerne kräftigere Düfte. Diese Herrenparfüme dominieren aktuell Amazon.</p>
-            <ul>
-                <li><strong>Dior Sauvage Elixir:</strong> Holz-würzig, langanhaltend, für den Abend.</li>
-                <li><strong>Bleu de Chanel EDP:</strong> Klassisch, holzig, vielseitig — passt zu jedem Anlass.</li>
-                <li><strong>Acqua di Giò EDP:</strong> Frisch-aquatisch, für den Übergang Herbst/Winter.</li>
-                <li><strong>Versace Eros EDP:</strong> Süß-würzig, intensiv, für die Nacht.</li>
-                <li><strong>Creed Aventus:</strong> Rauchig-fruchtig, Luxus-Statement, exklusiv bei Amazon.</li>
-            </ul>
-            <a class="btn" href="https://www.amazon.de/s?k=herren+parfum+herbst+winter&tag=balu17051-21&utm_source=pinterest&utm_medium=social&utm_campaign=parfum-herren" target="_blank" rel="noopener">Jetzt Herrendüfte bei Amazon entdecken</a>
-        </article>
-
-        <article class="material" style="margin-top:18px;">
-            <h3>8. LEGO Bestseller 2026 — Was Groß und Klein liebt</h3>
-            <p style="color:#6b7280; font-size:0.9rem;">🧱 31. August 2026 — Kategorie: LEGO</p>
-            <p>LEGO ist nicht nur für Kinder. Diese 5 Sets sind täglich auf Amazon im Trend — für Sammler und Fans.</p>
-            <ul>
-                <li><strong>LEGO Technic McLaren:</strong> Für Autofans, detailreiches Modell, anspruchsvoller Aufbau.</li>
-                <li><strong>LEGO City Space:</strong> Für Nachwuchs-Astronauten, Rakete mit Rover.</li>
-                <li><strong>LEGO Friends Tierhotel:</strong> Für kreative Kinder, mitfiguren und Zubehör.</li>
-                <li><strong>LEGO Architecture Skyline:</strong> Für Sammler, ikonische Stadtansichten.</li>
-                <li><strong>LEGO Creator 3-in-1:</strong> Flexibel, 3 Modelle in einem Set — ideal für Einsteiger.</li>
-            </ul>
-            <a class="btn" href="https://www.amazon.de/s?k=lego+sets+2026&tag=balu17051-21&utm_source=pinterest&utm_medium=social&utm_campaign=lego" target="_blank" rel="noopener">Jetzt LEGO-Bestseller bei Amazon entdecken</a>
-        </article>
-
-</main>
+    </main>
     <footer>© 2024 Wohn-Fieber — Getestet & empfohlen.</footer>
 
 <div id="cookie-banner" style="position:fixed;bottom:0;left:0;right:0;background:#1f2937;color:#fff;padding:16px;text-align:center;font-size:14px;z-index:9999;display:none;">
